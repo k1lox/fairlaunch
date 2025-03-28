@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Fairlaunch 2025 - Launch your tokens easily"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <!-- 增强的错误处理脚本 -->
+    <script src="%PUBLIC_URL%/js/error-handler.js"></script>
+    
+    <!-- 防止扩展干扰script -->
+    <script src="%PUBLIC_URL%/js/ethereum-protector.js"></script>
+    
+    <!-- Rainbow Kit 模拟脚本 -->
+    <script src="%PUBLIC_URL%/js/rainbow-mock.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <title>Fairlaunch 2025</title>
+    
+    <style>
+      /* 初始加载占位符样式 */
+      #root-loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        background-color: #1A1A2E;
+        color: #FFFFFF;
+        font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+      }
+      .loading-dots {
+        display: flex;
+      }
+      .loading-dot {
+        width: 12px;
+        height: 12px;
+        margin: 0 5px;
+        background-color: #7B1FA2;
+        border-radius: 50%;
+        animation: pulse 1.5s infinite ease-in-out;
+      }
+      .loading-dot:nth-child(1) { animation-delay: 0s; }
+      .loading-dot:nth-child(2) { animation-delay: 0.3s; }
+      .loading-dot:nth-child(3) { animation-delay: 0.6s; }
+      @keyframes pulse {
+        0%, 100% { transform: scale(0.5); opacity: 0.5; }
+        50% { transform: scale(1); opacity: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    
+    <!-- 添加初始加载占位符 -->
+    <div id="root-loading">
+      <div class="loading-dots">
+        <div class="loading-dot"></div>
+        <div class="loading-dot"></div>
+        <div class="loading-dot"></div>
+      </div>
+    </div>
+    
+    <div id="root"></div>
+    
+    <script>
+      // 当React挂载完成后，隐藏加载占位符
+      window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          var loading = document.getElementById('root-loading');
+          if (loading) {
+            loading.style.display = 'none';
+          }
+        }, 1000);
+      });
+      
+      // 防止应用卡住
+      setTimeout(function() {
+        var loading = document.getElementById('root-loading');
+        if (loading) {
+          loading.style.display = 'none';
+        }
+      }, 5000);
+    </script>
+    
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>

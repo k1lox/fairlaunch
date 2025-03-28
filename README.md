@@ -1,1 +1,1 @@
-# fairlaunch
+# FairLaunch
